@@ -8,6 +8,11 @@ To run:
 docker-compose up
 ```
 
+The project includes 3 images:
+- MongoDB
+- Nodejs
+- Vuejs
+
 Docker commands: 
 ```
 // Pull an image from Docker Hub
