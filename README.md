@@ -10,51 +10,51 @@ docker-compose up
 
 Docker commands: 
 ```
-#Pull an image from Docker Hub
+// Pull an image from Docker Hub
 docker pull {image_name}
 
-#Lis all current images
+// Lis all current images
 docker images
 
-#Erase an image
+// Erase an image
 docker rmi {image_id/name}
 
-#List all running container
+// List all running container
 docker ps
 docker ps -a #Liệt kê các container đã tắt
 
-#Delete an container
+// Delete an container
 docker rm -f {container_id/name}
 
-#Change an container
+// Change an container
 docker rename {old_container_name} {new_container_name}
 
-#Run a container 
+// Run a container 
 docker start {new_container_name}
 docker exec -it {new_container_name} /bin/bash
 
-#Create a container, with specific port and volumes
+// Create a container, with specific port and volumes
 docker run --name {container_name} -p {host_port}:{container_port} -v {/host_path}:{/container_path} -it {image_name} /bin/bash
 
-#Watch changes in container
+// Watch changes in container
 docker diff {container_name}
 
-#Commit changes in container và image
+// Commit changes in container và image
 docker commit -m "message" {container_name} {image_name}
 
-#Save image as file .tar
+// Save image as file .tar
 docker save {image_name} > {/host_path/new_image.tar}
 
-#Create new image from file .tar
+// Create new image from file .tar
 cat musashi.tar | docker import - {new_image_name}:latest
 
-#History of commit in image
+// History of commit in image
 docker history {image_name}
 
-#Recovery images from IMAGE_ID
+// Recovery images from IMAGE_ID
 docker tag {iamge_id} {image_new_name}:{tag}
 
-#Build an image from container
+// Build an image from container
 docker build -t {container_name} .
-# `.` is define where Dockerfile is.
+// `.` is define where Dockerfile is.
 ```
