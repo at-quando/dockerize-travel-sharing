@@ -1,0 +1,22 @@
+@import '~quill/dist/quill.core.css';
+@import '~quill/dist/quill.snow.css';
+@import '~quill/dist/quill.bubble.css';
+
+.quill-code {
+  border: none;
+  height: auto;
+  > code {
+    width: 100%;
+    margin: 0;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0;
+    height: 10rem;
+    overflow-y: auto;
+    resize: vertical;
+  }
+}
+.ql-editor {
+  height: 30rem;
+}

@@ -1,0 +1,50 @@
+.suggest {
+  padding: 0 8rem;
+  .content {
+    padding-top: 1rem;
+    width: 70%;
+    float: left;
+    .best-post{
+      .post-title {
+        margin-bottom: 1rem;
+      }
+      margin: 0 1rem;
+      border-bottom: 3px solid black;
+      .thumb-best {
+        width: 50%;
+        float: left;
+        padding-bottom: 30%;
+      }
+      .entry-meta {
+        padding-left: 1rem;
+        width: 50%;
+        float: left;
+      }
+    }
+    .thumb {
+      padding-bottom: 60%;
+    }
+    .thumb, .thumb-best {
+      height: 0;
+      overflow: hidden;
+      .post-pic {
+        width: 100%;
+      }
+    }
+    .post-item {
+      width: calc(100%/2);
+      padding: 1rem;
+      article {
+        padding-bottom: 1rem;
+        border-bottom: 3px solid black;
+      }
+    }
+  }
+  .sidebar{
+    width: 30%;
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

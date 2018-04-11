@@ -1,0 +1,39 @@
+version: '2' # specify docker-compose version
+
+# Define the services/containers to be run
+services:
+  frontend: # name of the first service
+    build:
+      context: vue-client
+      args:
+        - APP_DIR=/backpacking-frontend
+      dockerfile: Dockerfile
+    environment:
+      - APP_DIR=/backpacking-frontend
+    container_name: vue-frontend
+    image: vue-client
+    volumes:
+      - ./vue-client:/backpacking-frontend/:rw
+      - /backpacking-frontend/node_modules
+    ports:
+      - "8080:8080" # specify port forewarding
+    restart: always
+      
+  backend: # name of the first service
+    build: node-api
+    volumes:
+      - ./node-api:/backpacking-backend/:rw
+      - /backpacking-backend/node_modules
+    ports:
+      - "3000:3000" # specify port forewarding
+    restart: always
+    links:
+      - database
+
+  database: # name of the third service
+    build: db
+    ports:
+      - "27017:27017" # specify port forewarding
+    command: '--smallfiles --logpath=/dev/null'
+    volumes:
+      - ./data/mongo:/data/db

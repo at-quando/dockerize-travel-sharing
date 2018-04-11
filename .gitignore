@@ -1,0 +1,17 @@
+
+# compiled output
+/dist
+/tmp
+*.zip
+data/*
+
+.DS_Store
+Thumbs.db
+
+.vscode
+node_modules/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
