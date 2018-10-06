@@ -8,6 +8,7 @@ router.get('/', function(req, res, next){
     console.log(process.env.HOST);
 });
 
+
 router.post('/', UserValidation.validate, UsersController.create);
 
 module.exports = router;

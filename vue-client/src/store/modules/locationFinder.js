@@ -21,6 +21,8 @@ const actions = {
   [types.FETCH_LOCATIONS]: ({commit}, payload) => {
     Vue.http.get('locations', {params: payload})
     .then(response => {
+      console.log(payload)
+      console.log(response.body.locations)
       commit(types.MUTATE_FETCH_LOCATIONS, response.body.locations)
     })
   }

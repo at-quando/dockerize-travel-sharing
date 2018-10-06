@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var bcrypt = require('bcrypt');
+var bcrypt = require('bcryptjs');
 
 var AuthenticationSchema = new mongoose.Schema({
   uid: {
@@ -32,7 +32,7 @@ var Authentication = module.exports = mongoose.model('Authentication', Authentic
 
 module.exports.createAuth = function (auth, callback) {
   if(auth.password) {
-    bcrypt.hash(auth.password, 10,function(err,hash){
+    bcrypt.hash(auth.password, 10,function(err, hash){
       if(err) throw err;
       auth.password = hash;
       auth.save(callback);

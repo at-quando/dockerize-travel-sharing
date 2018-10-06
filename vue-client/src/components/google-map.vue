@@ -26,9 +26,7 @@
         :position="m"
         :clickable="true"
         :draggable="true"
-        :icon= "{
-          url: icon.shapes.PHOTO_POINT
-        }" 
+        :icon="iconArr[m.type_id]" 
         @click="enableSubDetail(m._id)">
       </gmap-marker>
     </gmap-map>
@@ -51,10 +49,18 @@ export default {
       radiusDefault: 3000,
       circleBounds: {},
       namePlace: '123',
-      icon: Icon
+      icon: Icon,
+      iconArr: null
     }
   },
   mounted () {
+    this.iconArr = [
+      this.icon.shapes.CURRENT_POINT,
+      this.icon.shapes.EAT_POINT,
+      this.icon.shapes.HOME_POINT,
+      this.icon.shapes.VIEW_POINT,
+      this.icon.shapes.PHOTO_POINT
+    ]
     this.findYourLocation()
   },
   methods: {

@@ -27,12 +27,12 @@
     }
   },
   "nav": { 
-    "newsfeed": "bảng tin",
-    "nearme": "gần đây",
-    "popular": "phổ biến",
-    "suggestion": "gợi ý",
-    "login": "đăng nhập",
-    "signup": "đăng ký",
+    "newsfeed": "news feed",
+    "nearme": "near me",
+    "popular": "popular",
+    "suggestion": "suggestion",
+    "login": "log in",
+    "signup": "sign up",
     "dropdown": {
       "account": "account",
       "support": "support",

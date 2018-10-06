@@ -58,7 +58,7 @@
             </router-link>
             <div class="actions-news">
               <p class="span-text">{{post.content}}</p>
-              <el-tag type="success" v-for="tag in tags" :key="tag.name">#{{tag.name}}</el-tag>
+              <el-tag type="success" v-for="tag in post.hashtag.split(',')" :key="tag.name" v-if="tag != '#'">{{tag}}</el-tag>
               <hr class="small">
               <router-link :to="`/post/${post._id}`">
                 <span class="span-text">{{post.comment_counter}} {{ $t('lang.newsfeed.news.comments')}}</span>

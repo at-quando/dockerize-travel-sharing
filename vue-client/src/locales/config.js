@@ -4,7 +4,7 @@ import VueI18n from 'vue-i18n'
 // /**
 //  * Import Language
 //  */
-import en from './i18n/en_US.js'
+import en from './i18n/en_US'
 import vn from './i18n/vn_VN'
 
 // /**

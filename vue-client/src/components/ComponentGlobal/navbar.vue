@@ -14,24 +14,24 @@
     <div class="menu">
       <ul class="menu-list">
         <router-link :to="'/news-feed'" active-class="nav-active" tag="a" exact>
-          <li class="item"><i class="fa fa-newspaper-o"></i>{{ $t('lang.nav.newsfeed') | capitalize }}</li>
+          <li class="item"><i class="fa fa-newspaper-o"></i>{{ $t('lang.nav.newsfeed')}}</li>
         </router-link>
-        <router-link :to="'/near-me'" active-class="nav-active" tag="a">
-          <li class="item"><i class="fa fa-superpowers"></i>{{ $t('lang.nav.nearme') | capitalize }}</li>
+        <router-link :to="'/near-me'" active-class="nav-active" tag="a"  exact>
+          <li class="item"><i class="fa fa-superpowers"></i>{{ $t('lang.nav.nearme')}}</li>
         </router-link>
-        <router-link :to="'/popular'" active-class="nav-active" tag="a">
-          <li class="item"><i class="fa fa-area-chart"></i> {{ $t('lang.nav.popular') | capitalize }}</li>
+        <router-link :to="'/popular'" active-class="nav-active" tag="a"  exact>
+          <li class="item"><i class="fa fa-area-chart"></i> {{ $t('lang.nav.popular')}}</li>
         </router-link>
-        <router-link :to="'/suggest'" active-class="nav-active" tag="a">
-          <li class="item"><i class="fa fa-lightbulb-o"></i> {{ $t('lang.nav.suggestion') | capitalize }}</li>
+        <router-link :to="'/suggest'" active-class="nav-active" tag="a"  exact>
+          <li class="item"><i class="fa fa-lightbulb-o"></i> {{ $t('lang.nav.suggestion')}}</li>
         </router-link>
       </ul>
       <div v-if="!currentUser" class="to-the-right">
         <router-link :to="'/auth/signup'" tag="a">
-          <li class="item btn "><i class="fa fa-user-plus"></i>{{ $t('lang.nav.signup') | capitalize }}</li>
+          <li class="item btn "><i class="fa fa-user-plus"></i>{{ $t('lang.nav.signup')}}</li>
         </router-link>
         <router-link :to="'/auth/login'" tag="a">
-          <li class="item btn"><i class="fa fa-sign-in"></i>{{ $t('lang.nav.login') | capitalize }}</li>
+          <li class="item btn"><i class="fa fa-sign-in"></i>{{ $t('lang.nav.login')}}</li>
         </router-link>
       </div>
       <div v-if="currentUser" class="center-nav to-the-right">

@@ -8,18 +8,24 @@
         <div class="circle google"><i class="fa fa-google-plus" aria-hidden="true"></i></div>
         <div class="circle twitter"><i class="fa fa-twitter" aria-hidden="true"></i></div>
       </div>
-      <div class="input-light-grey">
-        <i class="fa fa-user-o" aria-hidden="true"></i>
-        <input type="text" v-model="loginInfo.uid" placeholder="Email...">
-      </div>
-      <div class="input-light-grey">
-        <i class="fa fa-lock" aria-hidden="true"></i>
-        <input type="password" v-model="loginInfo.password"  placeholder="Password...">
-      </div>
-      <button class="btn-normal" @click="loginEmail(loginInfo)">Login</button>
+      <el-row :gutter="20">
+        <el-col :span="20" :offset="1">
+          <el-form :model="loginInfo" :rules="rules" ref="loginInfo" label-width="100px" class="demo-ruleForm col-md-8">
+            <el-form-item label="Email" prop="uid">
+              <el-input v-model="loginInfo.uid"></el-input>
+            </el-form-item>
+            <el-form-item label="Password" prop="password">
+              <el-input type="password" v-model="loginInfo.password"></el-input>
+            </el-form-item>
+            <div class="signup-btn">
+              <el-button type="success" @click="submitLogin('loginInfo')">Login</el-button>
+            </div>
+          </el-form>
+        </el-col>
+      </el-row>
       <div class="other-actions">
-      <a class="btn-normal">Forger Password?</a>
-      <a class="btn-normal">Have no account?</a>
+        <a class="btn-normal">Forger Password?</a>
+        <a class="btn-normal">Have no account?</a>
       </div>
     </div>
   </div>
@@ -38,7 +44,15 @@ export default {
         uid: '',
         password: ''
       },
-      FB: window.FB
+      FB: window.FB,
+      rules: {
+        uid: [
+          { required: true, message: 'Please input Email', trigger: 'blur' }
+        ],
+        password: [
+          { required: true, message: 'Password is required', trigger: 'blur' }
+        ],
+      }
     }
   },
   mounted () {
@@ -61,6 +75,20 @@ export default {
             this.setConnected({status: false})
           }
         })
+    },
+    submitLogin (data) {
+      this.$refs[data].validate((valid) => {
+        if (valid) {
+          console.log('Begin login!!')
+          this.loginEmail(this.loginInfo)
+        } else {
+          console.log('error login!!')
+          return false
+        }
+      })
+    },
+    resetForm(formName) {
+      this.$refs[formName].resetFields();
     }
   },
   computed: {
@@ -71,7 +99,13 @@ export default {
   watch: {
     connected: function (value) {
       if (this.connected.status === true) {
-        this.$router.go(-1)
+        this.$router.push({ name: 'NewsFeed'})
+        this.$notify({
+          title: 'Login Successful',
+          message: "Let's discover our system",
+          type: 'success',
+          offset: 100
+        });
       }
     }
   }

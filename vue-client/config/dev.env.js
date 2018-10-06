@@ -7,6 +7,6 @@ module.exports = merge(prodEnv, {
   SERVER_IP: '"http://localhost:3000/"',
   APP_ID: '"884618848377974"',
   VERSION: '"v2.11"',
-  MAP_KEY: '"AIzaSyDBP7bsS6gD5Pe8ZS9esToRwiG4THL-FRQ"',
+  MAP_KEY: '"AIzaSyA1AQBCGcc9tniQ_lTKSZH7V_AUo_YXOK0"',
   MAP_VERSION: '"3.26"'
 })
