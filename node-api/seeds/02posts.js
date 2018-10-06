@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var Post = require('../src/models/post');
 var PostLike = require('../src/models/postlike');
 var Comment = require('../src/models/comment');
+var Counter = require('../src/models/Counter');
 
 Post.create(
   [
@@ -17,7 +18,7 @@ Post.create(
       "content": "Sit velit exercitation fugiat id consequat irure proident officia fugiat excepteur ea. Velit est elit incididunt tempor nulla reprehenderit laborum est ullamco ut duis proident. Sunt veniam officia anim consectetur tempor et. Dolore nostrud et sint duis sint consequat commodo proident amet pariatur velit duis ex. Dolor minim laborum eiusmod incididunt nisi occaecat.",
       "image": "https://www.frommers.com/system/media_items/attachments/000/855/301/s500/Screenshot_2015-07-28_15.22.jpg",
       "posted_by": 1,
-      "hashtag": '#incididunt #enim #exercitation #deserunt #Lorem',
+      "hashtag": '#incididunt,#enim,#exercitation,#deserunt,#Lorem',
       "comment_counter": 0,
       "likes": 0
     },
@@ -25,7 +26,7 @@ Post.create(
       "content": "Nulla incididunt ullamco incididunt dolor voluptate pariatur. Dolor ea reprehenderit consectetur cillum officia ad tempor consequat sint ut. In esse elit pariatur ipsum reprehenderit ex culpa sint deserunt eiusmod officia ullamco proident. Veniam proident dolore excepteur sint aliquip.",
       "image": "https://img.buzzfeed.com/buzzfeed-static/static/2014-04/campaign_images/webdr07/20/9/this-man-has-one-of-the-best-instagram-accounts-y-2-30616-1397999373-12_dblbig.jpg",
       "posted_by": 1,
-      "hashtag": '#incididunt #enim #exercitation #deserunt #Lorem',
+      "hashtag": '#incididunt,#enim,#exercitation,#deserunt,#Lorem',
       "comment_counter": 0,
       "likes": 0
     },
@@ -33,7 +34,7 @@ Post.create(
       "content": "Dolore reprehenderit est consectetur ex sit incididunt consectetur do id nostrud esse consectetur officia id. Nulla fugiat elit deserunt magna ullamco et. Duis aute duis esse magna. In mollit pariatur enim ea sunt nisi et elit sunt nostrud ea excepteur duis velit. Esse fugiat et laboris exercitation excepteur cupidatat dolor ea in laborum nisi in officia. Esse do occaecat voluptate in ea.",
       "image": "https://www.travellingking.com/wp-content/uploads/2018/01/13-of-the-Best-Instagram-photos-in-Paris-who-to-follow.png",
       "posted_by": 1,
-      "hashtag": '#incididunt #enim #exercitation #deserunt #Lorem',
+      "hashtag": '#incididunt,#enim,#exercitation,#deserunt,#Lorem',
       "comment_counter": 0,
       "likes": 0
     },
@@ -41,7 +42,7 @@ Post.create(
       "content": "Aliquip sunt dolor ipsum minim irure aliqua id esse pariatur. Voluptate consequat occaecat voluptate ipsum ex proident cupidatat fugiat. Minim amet ad consequat amet nulla incididunt deserunt et veniam tempor eiusmod elit. Labore dolore est Lorem do minim ullamco tempor deserunt id id culpa commodo anim laborum. Magna cupidatat ad nostrud sunt fugiat laborum anim veniam excepteur dolor. Veniam est dolore irure exercitation consectetur nostrud eu et ipsum nostrud deserunt ipsum culpa. Labore voluptate reprehenderit minim cupidatat ex nostrud cupidatat.",
       "image": "https://i.amz.mshcdn.com/UIXBi-ATK1K-DEStZq68SuAbURI=/fit-in/850x850/https%3A%2F%2Fmashable.com%2Fwp-content%2Fgallery%2Fbest-instagram-images%2F1mattrubin.jpg",
       "posted_by": 1,
-      "hashtag": '#incididunt #enim #exercitation #deserunt #Lorem',
+      "hashtag": '#incididunt,#enim,#exercitation,#deserunt,#Lorem',
       "comment_counter": 0,
       "likes": 0
     },
@@ -49,7 +50,7 @@ Post.create(
       "content": "Ut enim nostrud laboris ullamco Lorem enim nostrud. Culpa sit fugiat labore deserunt et ad voluptate consequat cupidatat duis aute reprehenderit nisi. Elit veniam id Lorem laboris labore. Quis sit in consequat anim. Velit tempor Lorem dolor ullamco Lorem deserunt ad excepteur voluptate tempor ut ipsum cupidatat magna. Aliquip id qui cupidatat qui nulla excepteur commodo adipisicing cillum sunt tempor consectetur nulla.",
       "image": "http://1.bp.blogspot.com/-TBR7hNn8ETA/VZPHqe5xecI/AAAAAAAATfs/EM0kurKhGj0/s1600/Best%2BInstagram%2Baccounts%2Bto%2Bfollow.jpg",
       "posted_by": 1,
-      "hashtag": '#incididunt #enim #exercitation #deserunt #Lorem',
+      "hashtag": '#incididunt,#enim,#exercitation,#deserunt,#Lorem',
       "comment_counter": 0,
       "likes": 0
     },
@@ -57,7 +58,7 @@ Post.create(
       "content": "Laboris non ea deserunt non anim enim laboris in minim eu cillum nulla occaecat. Mollit labore proident mollit nostrud eiusmod. Et anim non aute dolore amet Lorem incididunt eu cillum anim. Pariatur incididunt consectetur qui magna eiusmod nisi exercitation duis.",
       "image": "1538549474376.jpeg",
       "posted_by": 1,
-      "hashtag": '#incididunt #enim #exercitation #deserunt #Lorem',
+      "hashtag": '#incididunt,#enim,#exercitation,#deserunt,#Lorem',
       "comment_counter": 0,
       "likes": 0
     },
@@ -65,7 +66,7 @@ Post.create(
       "content": "Aute pariatur minim ut qui elit enim duis. Sunt eiusmod enim proident excepteur fugiat culpa. Cupidatat consequat eiusmod in cillum nulla amet culpa fugiat. Laborum est minim dolore proident.",
       "image": "http://thestyletraveller.com/wp-content/uploads/2018/04/Facetune_18-04-2018-09-54-42-918x1024.jpg",
       "posted_by": 1,
-      "hashtag": '#incididunt #enim #exercitation #deserunt #Lorem',
+      "hashtag": '#incididunt,#enim,#exercitation,#deserunt,#Lorem',
       "comment_counter": 0,
       "likes": 0
     },
@@ -73,7 +74,7 @@ Post.create(
       "content": "Aliquip exercitation proident ad pariatur do aliqua sint duis excepteur deserunt. Amet incididunt nulla eu dolor. Consequat ipsum sit et culpa amet ut enim.",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVrRSjbrSSTXtqBJfNJdyFXKteHNDsdmmmXeXlnnHslxn8ZauHwg",
       "posted_by": 1,
-      "hashtag": '#incididunt #enim #exercitation #deserunt #Lorem',
+      "hashtag": '#incididunt,#enim,#exercitation,#deserunt,#Lorem',
       "comment_counter": 0,
       "likes": 0
     }
@@ -210,6 +211,12 @@ Post.create(
       }
     ], function (err, comment) {
       console.log('Done Seeds For Comments');
+    })
+    Counter.findOneAndUpdate({_id: 'userid'}, { $set: { sequence_value: 101 }}, {upsert: true, new: true}, function (err, comment) {
+      console.log('Fix User Id');
+    })
+    Counter.findOneAndUpdate({_id: 'locationid'}, { $set: { sequence_value: 101 }}, {upsert: true, new: true}, function (err, comment) {
+      console.log('Fix Location Id');
     })
   })
 

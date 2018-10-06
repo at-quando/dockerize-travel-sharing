@@ -6,7 +6,13 @@ Vue.filter('capitalize', function (value) {
 })
 
 Vue.filter('takeImage', function (value) {
-  return process.env.SERVER_IP + 'pictures/' + value
+  var expression = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/
+  var regex = new RegExp(expression)
+  if (value.match(regex)) {
+    return value
+  } else {
+    return process.env.SERVER_IP + 'pictures/' + value
+  }
 })
 
 Vue.filter('moment', function (date) {
