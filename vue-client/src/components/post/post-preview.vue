@@ -1,5 +1,5 @@
 <template>
-  <div class="preview" v-if="post.posted_by">
+  <div class="preview" v-if="post && post.posted_by">
     <div class="preview-img-box">
       <img class="preview-img" :src="post.image |takeImage" alt ="">
     </div>
@@ -11,18 +11,18 @@
         </div>
         <div class="actions-news">
           <p>{{post.content}}</p>
-            <el-tag type="success" v-for="tag in post.hashtag.split(',')" :key="tag.name" v-if="tag != '#'">{{tag}}</el-tag>
+            <el-tag type="success" v-for="(tag, index) in post.hashtag.split(',')" :key="index" v-if="tag != '#'">{{tag}}</el-tag>
           <hr class="small">
           <span>{{post.comment_counter}} {{ $t('lang.newsfeed.news.comments')}}</span>
           <i class="fa fa-heart bounceIn to-the-right" @click="likePost(post)" :class="{'heart': checkLike}"></i>
-          <a class="to-the-right"><span  class="liker-text" v-liker="{likes: post.user, yourLike: checkLike, yourName: currentUser.name}"></span></a>
+          <a v-if="currentUser" class="to-the-right"><span  class="liker-text" v-liker="{likes: post.user, yourLike: checkLike, yourName: currentUser.name}"></span></a>
           <span class="to-the-right">{{post.likes}} </span>
         </div>
-        <ul class="comments-box">
-          <li class="comment-item" v-for="comment in comments">
+        <ul class="comments-box" v-if="commentIns.length > 0">
+          <li class="comment-item"  v-for="comment in commentIns">
             <img class="avatar-user" src="http://3.bp.blogspot.com/-UU-U3Am2BrU/VX3UDjEu-OI/AAAAAAAABFc/z2499qSa_vc/s1600/avatarku.jpg" alt ="">
             <div class="comment-content"> 
-              <span class="comment-user">{{comment.user_id.name}}</span>
+              <span class="comment-user" v-if="comment.user_id">{{comment.user_id.name}}</span>
               <p class="comment-text">{{comment.content}}</p>
               <p class="date-time">{{comment.created_at | moment}}</p>
             </div>
@@ -51,34 +51,34 @@ export default {
       content: '',
       currentView: '',
       postTemp: [],
-      checkLike: false
+      checkLike: false,
+      post: null,
+      commentIns: null
     }
   },
   created () {
-    this.$http.get('posts/check', {params: {post_id: this.$route.params.id}})
+    this.$http.get(`posts/${this.$route.params.id}`)
     .then(response => {
-      this.checkLike = response.status === 200
-    }, function (err) {
-      console.log(err)
+      this.post = response.body.post
+      this.commentIns = response.body.comments
+      console.log(this.commentIns)
     })
-    this.showPost(this.$route.params.id)
   },
   mounted () {
     const blur = document.getElementById('blur')
     blur.className += 'blur'
-    console.log(this.post)
   },
   methods: {
     ...mapActions({
       createComment: types.CREATE_COMMENT,
-      showPost: types.SHOW_POST,
       like: types.LIKE
     }),
     comment () {
       if (this.content !== '') {
         this.createComment({post_id: this.$route.params.id, content: this.content})
-        this.content = ''
         this.post.comment_counter++
+        this.commentIns.push({"content": this.content})
+        this.content = ''
       }
     },
     likePost (post) {
@@ -108,7 +108,6 @@ export default {
     ...mapGetters({
       currentUser: types.CURRENT_USER,
       getComments: types.GET_COMMENTS,
-      post: types.POST,
       comments: types.COMMENTS
     })
   }
