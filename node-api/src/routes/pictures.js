@@ -6,4 +6,5 @@ router.get('/:id', function (req, res, next) {
   res.sendfile(path.resolve(`./uploads/${req.params.id}`));
 }); 
 
+
 module.exports = router;

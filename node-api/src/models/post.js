@@ -102,11 +102,11 @@ module.exports.showPost= function(id, callback) {
       },
       { 
         $match : {
-          _id: mongoose.Types.ObjectId(id) 
+          _id: mongoose.Types.ObjectId(id)
         }
       }
-    ], function (err, result) {
-      callback(null, result[0], comments);
+    ]).next(function (err, result) {
+      callback(null, result, comments);
     });
   })
 }

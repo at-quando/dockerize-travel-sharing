@@ -77,11 +77,15 @@ module.exports.getAllLocationsInArea= function({params}, callback) {
 }
 
 isInCircle= function(center,points,radius,callback) {
-  var result = points;
+  var result = [];
   points.forEach( (point,index) => {
     let d=Math.sqrt(Math.pow(center.lng-point.lng,2)+Math.pow(center.lat-point.lat,2));
-    result = d<radius? result : result.splice(index, 1);
+    // console.log(123123123,radius, d);
+    if (d < radius) {
+      result.push(point)
+    }
   });
+  console.log(23432423342,result);
   return result;
 }
 

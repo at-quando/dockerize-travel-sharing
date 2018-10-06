@@ -73,7 +73,11 @@ export default {
           this.hashtag = '#'
         }
         if (value[value.length-1] === ' ') {
-          this.hashtag =  this.hashtag + '#'
+          if (value[value.length-2] !== '#') {
+            this.hashtag  = this.hashtag + '#'
+          } else {
+            this.hashtag = this.hashtag.substring(0,value.length-1)
+          }
         }
       }
     }

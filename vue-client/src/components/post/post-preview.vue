@@ -11,7 +11,7 @@
         </div>
         <div class="actions-news">
           <p>{{post.content}}</p>
-          <p class="hashtag">{{post.hashtag}}</p>
+            <el-tag type="success" v-for="tag in post.hashtag.split(',')" :key="tag.name" v-if="tag != '#'">{{tag}}</el-tag>
           <hr class="small">
           <span>{{post.comment_counter}} {{ $t('lang.newsfeed.news.comments')}}</span>
           <i class="fa fa-heart bounceIn to-the-right" @click="likePost(post)" :class="{'heart': checkLike}"></i>
@@ -66,6 +66,7 @@ export default {
   mounted () {
     const blur = document.getElementById('blur')
     blur.className += 'blur'
+    console.log(this.post)
   },
   methods: {
     ...mapActions({
@@ -101,10 +102,6 @@ export default {
       //   post.likes = post.likes - 1
       //   this.postTemp = this.postTemp.filter(e => e !== post._id)
       // }
-    }
-  },
-  watch: {
-    $route (to, from) {
     }
   },
   computed: {

@@ -1,6 +1,12 @@
 .detail-page, .register, .login, .navbar-box, .container-crop, .post-box, .preview-box, .preview {
   @include box-shadow(0px,5px);
 }
+.router-link-exact-active {
+  .item {
+    color: #F7BA2A !important;
+    font-size: 15px;
+  }
+}
 
 .container {
   margin: 0 auto;
