@@ -8,6 +8,14 @@ To run:
 docker-compose up
 ```
 
+Seeds DB:
+Notice Backend Docker Container is running. Run below cmd:
+```
+docker-compose exec backend bash
+npm run migrate
+
+```
+
 The project includes 3 images:
 - MongoDB
 - Nodejs
