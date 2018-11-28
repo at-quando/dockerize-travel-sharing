@@ -3,10 +3,10 @@ var Schema = mongoose.Schema;
 
 //Article schema
 var ArticleSchema = new mongoose.Schema({
-  content: {
+  title: {
     type: String
   },
-  title: {
+  content: {
     type: String
   },
   user_id: {
