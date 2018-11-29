@@ -4,7 +4,8 @@ import router from '../../router'
 
 const state = {
   comments: [],
-  post: {}
+  post: {},
+  posts: []
 }
 
 const getters = {
