@@ -1,11 +1,10 @@
 import * as types from '../types'
 import Vue from 'vue'
-import router from '../../router'
+
 
 const state = {
   comments: [],
-  post: {},
-  posts: []
+  post: {}
 }
 
 const getters = {
@@ -21,9 +20,6 @@ const getters = {
 }
 
 const mutations = {
-  [types.MUTATE_CREATE_POST]: (state, payload) => {
-    state.posts.push(payload.post)
-  },
   [types.MUTATE_CREATE_COMMENT]: (state, payload) => {
     state.comments.push(payload.comment)
     console.log(12)
@@ -38,23 +34,6 @@ const mutations = {
 }
 
 const actions = {
-  [types.CREATE_POST]: ({commit}, payload) => {
-    const formData = new FormData()
-    formData.append('file', payload.img)
-    formData.append('content', payload.content)
-    formData.append('hashtag', payload.hashtag)
-    Vue.http.post('posts', formData, {
-      headers: {
-        'Content-Type': 'multipart/form-data'
-      }
-    })
-    .then(response => {
-      setTimeout(() => { router.push({name: 'NewsFeed'}) }, 2000)
-      commit(types.MUTATE_CREATE_POST, response.body)
-    }, function (error) {
-      console.log(error)
-    })
-  },
   // [types.GET_COMMENTS]: ({commit}, payload) => {
   //   Vue.http.get('comments')
   //   .then(response => {

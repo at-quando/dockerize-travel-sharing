@@ -3,7 +3,7 @@
     <moving-arrow :move-x="arrowMovePx">
     </moving-arrow>
     <div class="post-box">
-      <keep-alive
+      <keep-alive>
         <component :is="currentView"/>
       </keep-alive>
     </div>

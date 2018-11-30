@@ -15,7 +15,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    notiStatus: {status: null, message: ''}
+    notiStatus: {status: null, message: ''},
+    posts: []
   },
   getters,
   actions,

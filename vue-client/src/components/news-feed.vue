@@ -46,7 +46,7 @@
     </transition>
     <div class="news-section">
       <ul v-masonry transition-duration="0s" item-selector=".news-item" class="news-list">
-        <li v-masonry-tile v-bind:key="index" v-for="(post, index) in posts" class="news-item">
+        <li v-masonry-tile :key="post" v-for="(post) in posts" class="news-item">
           <div class="news-info">
             <div class="news-header">
               <img class="avatar-user" src="http://3.bp.blogspot.com/-UU-U3Am2BrU/VX3UDjEu-OI/AAAAAAAABFc/z2499qSa_vc/s1600/avatarku.jpg" alt ="">

@@ -24,7 +24,7 @@
         </el-col>
       </el-row>
       <div class="other-actions">
-        <a class="btn-normal">Forger Password?</a>
+        <a class="btn-normal">Forget Password?</a>
         <a class="btn-normal">Have no account?</a>
       </div>
     </div>
@@ -77,6 +77,7 @@ export default {
         })
     },
     submitLogin (data) {
+      console.log(12, data)
       this.$refs[data].validate((valid) => {
         if (valid) {
           console.log('Begin login!!')
